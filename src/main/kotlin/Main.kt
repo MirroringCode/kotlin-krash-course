@@ -1,28 +1,45 @@
 fun main() {
-    println("Enter a number");
-    val input = readln();
-//    val inputAsInteger = input.toIntOrNull()?.rem(2)?.equals(0);
-    val inputAsInteger = input.toIntOrNull();
 
-    if (inputAsInteger != null) {
 
-        val output = when {
-            inputAsInteger % 2 == 0 -> "The number is even"
-            inputAsInteger < 10 -> "The number is odd and less than 10"
-            else -> "The number is odd and at least 11"
-        }
+    println("How many numbers will you enter")
+    val amountOfNumbers = readln().toIntOrNull() ?: 0;
+//    var i = 0
 
-/*        val output = when(inputAsInteger) {
-            null -> "Enter a valid number"
-            3 -> "The number is three"
-            5 -> "The number is five"
-            in 10..20 -> "The number is between 10 and 20"
-            else -> "Invalid"
-        }*/
-        println(output);
+    val numbers = mutableListOf<Int>()
+    var sum = 0
 
-    } else {
-        println("Enter a valid number");
+    for (i in 0 until amountOfNumbers) {
+        println("Please enter number #${i + 1}")
+        val number = readln().toIntOrNull() ?: continue
+        numbers.add(number)
+        sum += number
     }
+
+
+    for (number in numbers) {
+        println(number)
+    }
+
+
+
+
+
+
+
+/*    var sum = 0
+    var i = 0;
+    var numbers = intArrayOf();*/
+/*    while (i < amountOfNumbers) {
+        println("Please enter number #${i + 1}")
+        val number = readln().toIntOrNull() ?: 0;
+
+        sum += number
+        numbers += number;
+        i++
+    }*/
+
+    println("Numbers : ${numbers}")
+    println("The total sum is $sum")
+
 
 }

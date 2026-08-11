@@ -1,34 +1,20 @@
 fun main() {
 
-
     println("Enter a string:")
-    val input = readln().toInt()
-//    val reversed = input.reversed()
-    println(input + input.reversed())
+    val input = readln()
 
-/*    if (input == reversed(input)) {
-        println("that's a palindrome")
+    val favoriteNumbers = intArrayOf(21, 34, 56, 78)
+    val evenNumbers = favoriteNumbers.filter { it % 2 == 0}
+
+/*    val lettersonly = input.filter {
+        it.isLetter()
     }*/
 
-/*    if (input == reversed) {
-        println("that's a palindrome")
+    val lambda: (Char) -> Boolean = {
+        it.isLetter()
     }
 
-    println(reversed)*/
+    println(evenNumbers)
+    print(lettersonly)
 
-
-}
-
-fun String.reversed(): String {
-    val finalString = buildString {
-        for (i in this@reversed.lastIndex downTo 0) {
-            append(this@reversed[i])
-        }
-    }
-
-    return finalString
-}
-
-fun Int.reversed(): Int {
-    return this.toString().reversed().toInt()
 }

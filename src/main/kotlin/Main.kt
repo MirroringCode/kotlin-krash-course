@@ -2,19 +2,19 @@ fun main() {
 
 
     println("Enter a string:")
-    val input = readln()
-    val reversed = input.reversed()
-    println(reversed)
+    val input = readln().toInt()
+//    val reversed = input.reversed()
+    println(input + input.reversed())
 
 /*    if (input == reversed(input)) {
         println("that's a palindrome")
     }*/
 
-    if (input == reversed) {
+/*    if (input == reversed) {
         println("that's a palindrome")
     }
 
-    println(reversed)
+    println(reversed)*/
 
 
 }
@@ -27,4 +27,8 @@ fun String.reversed(): String {
     }
 
     return finalString
+}
+
+fun Int.reversed(): Int {
+    return this.toString().reversed().toInt()
 }

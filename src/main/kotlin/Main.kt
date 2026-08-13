@@ -4,16 +4,17 @@ fun main() {
     val input = readln()
 
     val favoriteNumbers = intArrayOf(21, 34, 56, 78)
-    val evenNumbers = favoriteNumbers.filter { it % 2 == 0}
-
+    val evenNumbers = favoriteNumbers.map {
+        it * it
+    }
 
 
     val lambda: (Char) -> Boolean = {
         it.isLetter()
     }
 
-    val lettersOnly = input.filter {
-        it.isLetter()
+    val lettersOnly = input.myFilter {
+        isLetter()
     }
 
 //    val lettersOnly = input.filter(lambda)
@@ -25,4 +26,14 @@ fun main() {
     println(evenNumbers)
     print(lettersOnly)
 
+}
+
+fun String.myFilter(predicate: Char.() -> Boolean): String {
+    return buildString {
+        for(char in this@myFilter) {
+            if(char.predicate()) {
+                append(char)
+            }
+        }
+    }
 }

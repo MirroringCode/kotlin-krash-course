@@ -1,39 +1,23 @@
+import kotlin.math.sqrt
+
 fun main() {
 
-    println("Enter a string:")
-    val input = readln()
+    val rect1 = Rectangle(
+        width = 5f,
+        height = 7f
+    )
+    val rect2 = Rectangle(
+        width = 5f,
+        height = 7f
+    )
 
-    val favoriteNumbers = intArrayOf(21, 34, 56, 78)
-    val evenNumbers = favoriteNumbers.map {
-        it * it
-    }
-
-
-    val lambda: (Char) -> Boolean = {
-        it.isLetter()
-    }
-
-    val lettersOnly = input.myFilter {
-        isLetter()
-    }
-
-//    val lettersOnly = input.filter(lambda)
-
-/*    val lettersOnly = input.filter { currentCharacter ->
-        currentCharacter.isLetter();
-    }*/
-
-    println(evenNumbers)
-    print(lettersOnly)
+    println(rect1 == rect2) // compare basing if they are the same instance / by reference
 
 }
 
-fun String.myFilter(predicate: Char.() -> Boolean): String {
-    return buildString {
-        for(char in this@myFilter) {
-            if(char.predicate()) {
-                append(char)
-            }
-        }
-    }
+class Rectangle(val width: Float, val height: Float) {
+
+    val diagonal = sqrt(width * width + height * height)
+
+    val area = width * height
 }
